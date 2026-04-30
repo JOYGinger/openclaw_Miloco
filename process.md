@@ -49,3 +49,66 @@ openclaw gateway token==
 ### 0427
 将openclaw接入qq，可以对浏览器进行操作
 现在的问题，找到一篇参考论文
+柳暗花明又一村，找到了一篇开源GitHub，天助我也。
+
+#### 记录
+理论文章https://cloud.tencent.com/developer/article/2593005
+
+
+#### 配置进度
+- 创建python虚拟环境，在项目目录下
+```
+python -m venv venv
+venv\Scripts\activate
+```
+- 安装python依赖
+```
+pip install -r requirements.txt
+```
+- ollama部署qwen2.5-3b本地大模型
+```
+//启动
+ollama serve
+//拉取qwen2.5vl-3b
+ollama pull qwen2.5vl:3b
+```
+（以下为尝试，已失败）
+- 将电脑自带摄像头转换为rtsp视频流，参考文章https://blog.csdn.net/qq_15060477/article/details/150153673
+```
+//本地摄像头名称
+"USB2.0 FHD UVC WebCam" (video)
+
+ffplay -f dshow -i video="USB2.0 FHD UVC WebCam"
+
+//
+ffmpeg -f dshow -i video="USB2.0 FHD UVC WebCam" -preset ultrafast -tune zerolatency -f rtsp rtsp://localhost:8554/live.stream
+
+//改进版，电脑摄像头太清晰了
+ffmpeg -f dshow -video_size 640x480 -framerate 30 -i video="USB2.0 FHD UVC WebCam" -c:v libx264 -preset ultrafast -tune zerolatency -f rtsp rtsp://localhost:8554/live.stream
+
+//rtsp视频流地址
+rtsp://localhost:8554/live.stream
+```
+（以上为尝试，已失败）
+- 将rtsp视频流暂时设置为电脑自带摄像头
+- 运行，在虚拟环境下
+```
+python main.py
+```
+- 本地访问：http://localhost:8000
+
+#### 总结
+电脑配置不足，跑的非常慢，需要一个服务器，希望可以提供autoDL账号、腾讯云或者阿里云账号
+
+【还需要做的】
+- 思考云服务器配置与大模型部署
+- miloco的rtsp视频流放入代码
+- 如何云连接大模型
+- 报告输出是否需要数据库
+- 大模型是否需要训练？如何训练？
+- 技术栈的选型？
+
+## 0429
+在使用龙虾进行工作流创建
+买了一个百度千帆codingplan
+需要进行配置
