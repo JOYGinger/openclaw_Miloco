@@ -63,6 +63,13 @@ venv\Scripts\activate
 ```
 - 安装python依赖
 ```
+
+
+
+
+
+
+
 pip install -r requirements.txt
 ```
 - ollama部署qwen2.5-3b本地大模型
@@ -112,3 +119,16 @@ python main.py
 在使用龙虾进行工作流创建
 买了一个百度千帆codingplan
 需要进行配置
+
+
+## 0508
+项目进度记录
+```
+memory/2026-05-08-classroom-analysis-project.md
+```
+
+## 0512
+需要做的
+- 首先固定坐标位置识别人像
+- yolov8微调，考虑是否有其他可以裁切
+- 多模态大模型调用
