@@ -1,0 +1,80 @@
+# 中小学科学课堂行为分析指标配置 (规范 v1.0)
+# 按照《中小学科学课堂行为分析指标与可视化规范》定制
+
+indicators:
+  - name: head_up
+    description: 学生抬头率（注意力指标）
+    prompt: |
+      分析图片中学生的面部朝向和注意力状态。
+      识别逻辑：
+      1. 基于面部朝向判断学生是否正对讲台/黑板/教师区域。
+      2. 识别“专注”特征：眉头微皱，目光集中。
+      
+      返回严格的JSON格式：
+      {
+        "head_up": true/false,
+        "confidence": 0.0-1.0,
+        "detail": "描述面部朝向特征"
+      }
+    enabled: true
+    
+  - name: writing
+    description: 写字/做笔记行为（认知加工指标）
+    prompt: |
+      分析图片中学生是否处于书写或记笔记状态。
+      识别逻辑：
+      1. 检测身体姿态：是否有弯腰、前倾动作，且手臂支撑在桌面上。
+      2. 识别手部特征：手持笔状物。
+      3. 动作特征：头部适度前倾。
+      
+      返回严格的JSON格式：
+      {
+        "writing": true/false,
+        "confidence": 0.0-1.0
+      }
+    enabled: true
+    
+  - name: hand_raised
+    description: 举手&发言行为（主动参与指标）
+    prompt: |
+      分析图片中学生的肢体动作和交互状态。
+      识别逻辑：
+      1. 举手识别：手臂抬起角度是否明显（通常 > 60度）。
+      2. 发言识别：观察口型是否有开合频率变化。
+      
+      返回严格的JSON格式：
+      {
+        "hand_raised": true/false,
+        "is_speaking": true/false,
+        "confidence": 0.0-1.0
+      }
+    enabled: true
+
+  - name: emotion
+    description: 学习情绪变化（心理体验指标）
+    prompt: |
+      基于面部肌肉运动和表情，分析学生的情绪状态。
+      请从以下 6 种情绪中选择最符合的一种：
+      - focus (专注): 眉头微皱，目光集中
+      - confused (困惑): 眉头紧锁，头部微倾
+      - happy (愉悦): 嘴角上扬，眼睛微眯
+      - bored (无聊): 表情呆滞，频繁眨眼
+      - nervous (紧张): 眉头紧锁，嘴唇紧闭
+      - neutral (中性): 无明显情绪特征
+      
+      返回严格的JSON格式：
+      {
+        "emotion": "focus/confused/happy/bored/nervous/neutral",
+        "is_positive": true/false,
+        "confidence": 0.0-1.0
+      }
+    enabled: true
+
+  # 暂不启用的指标 (根据规范预留)
+  - name: group_discussion
+    description: 小组讨论行为
+    enabled: false
+    
+  - name: experiment_operation
+    description: 实验操作行为
+    enabled: false
