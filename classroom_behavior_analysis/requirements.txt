@@ -1,0 +1,8 @@
+openai
+python-dotenv
+pandas
+tqdm
+pillow
+matplotlib
+openpyxl
+ultralytics
