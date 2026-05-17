@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+*.key
+*.pem
+
+# Videos
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.flv
+*.wmv
+videos/
+
+# YOLO model weights
+*.pt
+*.onnx
+*.engine
+
+# Outputs
+outputs/
+outputs_known_total/
+outputs_fixed_seats/
+archive_old/
+manual_labels/
+manual_points/
+
+# Classroom behavior analysis
+classroom_behavior_analysis/.env
+classroom_behavior_analysis/videos/
+classroom_behavior_analysis/outputs/
+classroom_behavior_analysis/outputs_known_total/
+classroom_behavior_analysis/archive_old/
+classroom_behavior_analysis/__pycache__/
+classroom_behavior_analysis/*.mp4
+classroom_behavior_analysis/*.avi
+classroom_behavior_analysis/*.mov
+classroom_behavior_analysis/*.mkv
+classroom_behavior_analysis/*.pt
+classroom_behavior_analysis/*.onnx
+classroom_behavior_analysis/*.engine
+
+# System
+.DS_Store
+Thumbs.db
+EOF
